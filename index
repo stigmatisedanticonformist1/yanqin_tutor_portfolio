@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wang Yanqin | Tutor Portfolio</title>
+  <style>
+    :root {
+      --bg: #f8f8f6;
+      --card: #ffffff;
+      --text: #171717;
+      --muted: #666;
+      --line: #e8e8e6;
+      --accent: #1f3a5f;
+      --soft: #f2f5f8;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 28px 22px 72px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 10px 0 24px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 15px;
+      letter-spacing: .02em;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .navlinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .navlinks a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .navlinks a:hover { color: var(--text); }
+
+    .hero {
+      background: linear-gradient(180deg, #ffffff, #fafafa);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 44px;
+      border-radius: 24px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 12px;
+      color: var(--accent);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 56px;
+      line-height: 1.03;
+      letter-spacing: -0.04em;
+      max-width: 760px;
+    }
+
+    .subtitle {
+      margin-top: 16px;
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .tagline {
+      margin-top: 18px;
+      font-size: 14px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 26px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .contact a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid #d7d7d7;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .15s ease;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: white;
+      border: 1px solid var(--accent);
+    }
+
+    .btn.primary:hover { opacity: .92; }
+
+    .btn.secondary {
+      background: white;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .btn.secondary:hover { background: var(--soft); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      margin-bottom: 28px;
+    }
+
+    .section, .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 28px;
+    }
+
+    .panel h2, .section h2 {
+      margin: 0 0 14px;
+      font-size: 30px;
+      letter-spacing: -0.03em;
+    }
+
+    .panel p, .section p {
+      margin: 0 0 14px;
+      max-width: 72ch;
+    }
+
+    .subject-grid, .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .subject-card, .info-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff, #fcfcfc);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .subject-card h3, .info-card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .subject-card p, .info-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .results {
+      display: grid;
+      gap: 12px;
+    }
+
+    .result {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .result span:last-child {
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    ul.clean {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
+    .quote {
+      padding: 18px;
+      border-left: 4px solid var(--accent);
+      background: var(--soft);
+      border-radius: 14px;
+      color: #2a2a2a;
+    }
+
+    footer {
+      padding-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      h1 { font-size: 42px; }
+      .grid, .subject-grid, .card-grid { grid-template-columns: 1fr; }
+      .hero, .panel, .section { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">Tutor Portfolio</div>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#results">Results</a>
+        <a href="#approach">Approach</a>
+        <a href="#personalised">Lessons</a>
+        <a href="#alevel-insights">A-Level Tips</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="eyebrow">Wang Yanqin</div>
+      <p style="margin:0 0 12px 0; color:#666; font-size:15px;">
+        Raffles Institution graduate • H3 Mathematics Merit • Singapore Mathematical Olympiad Gold
+      </p>
+      <h1>Secondary School & JC Tutor for Mathematics, Physics, Chemistry, and General Paper.</h1>
+      <div class="subtitle">
+        Helping students build strong conceptual understanding, sharper problem-solving skills,
+        and greater confidence for examinations.
+      </div>
+      <div class="tagline">Clear Explanations • Strong Fundamentals • Exam-Focused Support</div>
+
+      <div class="contact">
+        <div>Email: <a href="mailto:wangyanqin2005@gmail.com">wangyanqin2005@gmail.com</a></div>
+        <div>Phone: <a href="tel:+6587534858">+65 87534858</a></div>
+        <div>Location: Singapore</div>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="#contact">Enquire About Lessons</a>
+        <a class="btn secondary" href="#subjects">View Subjects</a>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="panel" id="about">
+        <h2>About Me</h2>
+        <p>
+          I am a pre-university graduate with strong academic results and a deep interest in helping students
+          understand difficult concepts clearly. My approach focuses on building real understanding rather than
+          memorisation, so that students can tackle unfamiliar questions with confidence.
+        </p>
+        <p>
+          With strengths in mathematics, physics, chemistry, and writing, I aim to help students strengthen
+          both subject mastery and exam technique.
+        </p>
+      </section>
+
+      <section class="panel" id="results">
+        <h2>Academic Results</h2>
+        <div class="results">
+          <div class="result"><span>H2 Mathematics</span><span>A</span></div>
+          <div class="result"><span>H2 Physics</span><span>A</span></div>
+          <div class="result"><span>H2 Chemistry</span><span>A</span></div>
+          <div class="result"><span>H2 Economics</span><span>A</span></div>
+          <div class="result"><span>H1 General Paper</span><span>A</span></div>
+          <div class="result"><span>H3 Mathematics</span><span>Merit</span></div>
+          <div class="result"><span>O-Level Higher Chinese</span><span>A2</span></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="section" id="awards">
+      <h2>Achievements & Distinctions</h2>
+      <div class="card-grid">
+        <div class="info-card">
+          <h3>Singapore Mathematical Olympiad</h3>
+          <p>Gold Award (Junior Section, 2019) and Silver Award (Junior Section, 2018).</p>
+        </div>
+        <div class="info-card">
+          <h3>Singapore Junior Physics Olympiad</h3>
+          <p>Bronze Award (2019), Honourable Mention (2018), Honourable Mention (2020).</p>
+        </div>
+        <div class="info-card">
+          <h3>Essay & Communication</h3>
+          <p>SMS Essay Competition – 2nd Prize, supported by strong performance in General Paper and Higher Chinese.</p>
+        </div>
+        <div class="info-card">
+          <h3>Academic Strength</h3>
+          <p>Strong A-Level results including A grades in H2 Mathematics, Physics, Chemistry, Economics, and H1 General Paper, with Merit in H3 Mathematics.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="subjects">
+      <h2>Subjects Offered</h2>
+      <div class="subject-grid">
+        <div class="subject-card">
+          <h3>Mathematics</h3>
+          <p>Secondary E-Math, Secondary A-Math, JC H1 Mathematics, and JC H2 Mathematics.</p>
+        </div>
+        <div class="subject-card">
+          <h3>Physics</h3>
+          <p>Secondary Physics and JC H2 Physics, with focus on concepts, formulas, and structured problem-solving.</p>
+        </div>
+        <div class="subject-card">
+          <h3>Chemistry</h3>
+          <p>Secondary Chemistry and JC H2 Chemistry, including foundations, application questions, and common exam pitfalls.</p>
+        </div>
+        <div class="subject-card">
+          <h3>General Paper</h3>
+          <p>Essay planning, argument development, comprehension skills, and clarity of expression.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <h2>Teaching Approach</h2>
+      <div class="card-grid">
+        <div class="info-card">
+          <h3>Concept First</h3>
+          <p>I explain the logic behind each topic so students understand why methods work, not just what steps to memorise.</p>
+        </div>
+        <div class="info-card">
+          <h3>Step-by-Step Problem Solving</h3>
+          <p>I break difficult questions into smaller parts so students learn how to approach unfamiliar problems calmly.</p>
+        </div>
+        <div class="info-card">
+          <h3>Exam Technique</h3>
+          <p>Lessons include time management, presentation of working, and strategies for common question types.</p>
+        </div>
+        <div class="info-card">
+          <h3>Targeted Practice</h3>
+          <p>I focus on a student’s weak areas and reinforce them with guided practice and review.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="personalised">
+      <h2>Personalised One‑to‑One Lessons</h2>
+      <p>
+        Lessons are conducted one‑to‑one so that each session focuses on the
+        student's individual weak points. Each lesson follows a structured
+        cycle designed to diagnose gaps, strengthen understanding, and extend
+        the student towards harder examination questions.
+      </p>
+
+      <div class="card-grid">
+        <div class="info-card">
+          <h3>1. Diagnose Weak Points</h3>
+          <p>At the start of a topic, I test the student with targeted questions to identify specific conceptual gaps or recurring mistakes.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>2. Guided Practice</h3>
+          <p>Students attempt carefully selected questions so I can observe their thinking process and pinpoint misunderstandings.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>3. Clear Explanation</h3>
+          <p>I explain the underlying concepts step‑by‑step, focusing on the reasoning behind each method rather than memorising procedures.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>4. Harder Exam Questions</h3>
+          <p>Students then tackle more challenging exam‑style problems to explore deeper applications of the concept.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>5. Homework for Reinforcement</h3>
+          <p>Additional problems are assigned as homework so that the student can consolidate the ideas independently before the next lesson.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <h2>What Students Can Expect</h2>
+      <ul class="clean">
+        <li>Clear explanations of difficult concepts</li>
+        <li>Patient guidance through challenging questions</li>
+        <li>Lessons tailored to the student’s pace and level</li>
+        <li>Support for school exams and national exam preparation</li>
+      </ul>
+      <div class="quote" style="margin-top:18px;">
+        My goal is not only to help students score better, but also to help them think more clearly and feel more confident in the subject.
+      </div>
+    </section>
+
+    <section class="section" id="alevel-insights">
+      <h2>Insights on Preparing for A‑Levels</h2>
+      <p>
+        Having gone through the A‑Level system myself, I emphasise study
+        strategies that maximise understanding and efficiency rather than
+        blind memorisation or excessive revision.
+      </p>
+
+      <div class="card-grid">
+        <div class="info-card">
+          <h3>1. Target the Cambridge Curriculum</h3>
+          <p>Instead of revising randomly, preparation should focus on the structure of the Cambridge syllabus and the types of questions that consistently appear in examinations.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>2. Master Fundamentals First</h3>
+          <p>Strong basics make difficult questions much easier. I emphasise conceptual understanding before moving on to harder problems.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>3. Time Management</h3>
+          <p>Students learn how much time to allocate to each question so they avoid getting stuck and can complete the paper efficiently.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>4. Efficient Answering Techniques</h3>
+          <p>Exams reward clear working and structured answers. I teach techniques that help students score the most marks with the least unnecessary effort.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>Contact</h2>
+      <p>
+        For tuition enquiries, feel free to reach out by email or phone.
+        You can use this site as your main tutor profile for parents, students, or tuition agencies.
+      </p>
+      <div class="contact">
+        <div>Email: <a href="mailto:wangyanqin2005@gmail.com">wangyanqin2005@gmail.com</a></div>
+        <div>Phone: <a href="tel:+6587534858">+65 87534858</a></div>
+      </div>
+    </section>
+
+    <footer>
+      © Wang Yanqin
+    </footer>
+  </div>
+</body>
+</html>
